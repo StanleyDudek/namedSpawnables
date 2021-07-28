@@ -2,7 +2,7 @@
 
 --Configure
 local showOnVehicleSpawn = true
-local showOnVehicleEdited = false
+local showOnVehicleEdited = true
 local showOnVehicleDeleted = true
 
 pluginName = debug.getinfo(1).source:sub(2)
