@@ -2,7 +2,7 @@
 
 --Configure
 local showOnVehicleSpawn = true
-local showOnVehicleEdited = true
+local showOnVehicleEdited = false
 local showOnVehicleDeleted = true
 
 pluginName = debug.getinfo(1).source:sub(2)
@@ -855,7 +855,10 @@ local paths = {
 	--Unicycle
 	unicycle_snowman = "vehicles/unicycle/snowman.pc",
 	unicycle_with_mesh = "vehicles/unicycle/with_mesh.pc",
-	unicycle_without_mesh = "vehicles/unicycle/without_mesh.pc",
+	unicycle_without_mesh = "vehicles/unicycle/without_mesh.pc"
+	
+	--add additional paths as a key value pair
+	--make_configName = "path/to/config.pc"
 }
 
 local models = {
@@ -1632,6 +1635,9 @@ local models = {
 	unicycle_snowman = "Snowman",
 	unicycle_with_mesh = "With Mesh",
 	unicycle_without_mesh = "Without Mesh"
+	
+	--add additional models as a key value pair
+	--make_configName = "Model Name"
 }
 
 local makes = {
@@ -1721,7 +1727,7 @@ local makes = {
 	--Stock Player Character
 	unicycle = "Player Model"
 
-	--add additional definitions as a key value pair
+	--add additional makes as a key value pair
 	--genericName = "fullName"
 }
 
