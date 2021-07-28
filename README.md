@@ -33,6 +33,23 @@ local showOnVehicleDeleted = true
 
 To turn off any of these conditions on which information will print, set to false.
 
+Additionally, if you want to add custom/modded spawnables, see the bottom of the paths/models/makes tables for formatting examples:
+
+```
+	--add additional paths as a key value pair
+	--make_configName = "path/to/config.pc"
+```
+
+```
+	--add additional models as a key value pair
+	--make_configName = "Model Name"
+```
+
+```
+	--add additional makes as a key value pair
+	--genericName = "fullName"
+```
+
 ---
 
 #### 4. Restart your server to apply changes.
