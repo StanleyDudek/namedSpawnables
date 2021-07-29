@@ -1880,7 +1880,6 @@ function onVehicleEdited(ID, vehID, data)
 	local fullName = makes[data.name]
 	local vehCfg = getVehCfg(data)
 	if players[ID].vehBlocked == false then
-		store(ID, vehID, data, false)
 		if fullName and vehCfg then
 			local namedSpawnable = fullName .. " " .. vehCfg
 			if players[ID][vehID].vehCfg == data.cfg.partConfigFilename then
@@ -1915,6 +1914,7 @@ function onVehicleEdited(ID, vehID, data)
 				isUnrecognized(playerName, data)
 			end
 		end
+		store(ID, vehID, data, false)
 	else
 		release(ID, vehID)
 	end
