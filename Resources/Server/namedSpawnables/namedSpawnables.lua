@@ -1921,15 +1921,15 @@ function onVehicleEdited(ID, vehID, data)
 end
 
 function onVehicleDeleted(ID, vehID)
-	if showOnVehicleDeleted then
-		local ID = tonumber(ID)
-		local vehID = tonumber(vehID)
-		local playerName = players[ID].name
-		if players[ID][vehID] then
-			local data = players[ID][vehID].vehData
-			local genericName = data.name
-			local fullName = makes[data.name]
-			local vehCfg = getVehCfg(data)
+	local ID = tonumber(ID)
+	local vehID = tonumber(vehID)
+	local playerName = players[ID].name
+	if players[ID][vehID] then
+		local data = players[ID][vehID].vehData
+		local genericName = data.name
+		local fullName = makes[data.name]
+		local vehCfg = getVehCfg(data)
+		if showOnVehicleDeleted then
 			if fullName and vehCfg then
 				local namedSpawnable = fullName .. " " .. vehCfg
 				TriggerClientEvent(-1, "namedMessage", playerName .. " deleted their " .. namedSpawnable)
@@ -1945,12 +1945,14 @@ function onVehicleDeleted(ID, vehID)
 				SendChatMessage(-1, playerName .. " deleted their unrecognized vehicle: " .. genericName)
 				print("[namedSpawnables] " .. playerName .. " deleted their unrecognized vehicle: " .. genericName)
 			end
-			release(ID, vehID)
-		else
-			store(ID, vehID, nil, true)
+		end
+		release(ID, vehID)
+	else
+		if showOnVehicleDeleted then
 			TriggerClientEvent(-1, "namedMessage", playerName .. "'s vehicle spawn was blocked")
 			SendChatMessage(-1, playerName .. "'s vehicle spawn was blocked")
 			print("[namedSpawnables] " .. playerName .. "'s vehicle spawn was blocked")
 		end
+		store(ID, vehID, nil, true)
 	end
 end
